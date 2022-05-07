@@ -16,12 +16,12 @@ In this example, grey means the node is queued, ready to be explored. Black mean
 
 ## Java Code Representation (Tree)
 ```
-public Node BFS(Tree tree, Node root, Node target) {
+public Node BFS(Node root, Node target) {
     Queue<Node> queue = new Queue<>();
     queue.enqueue(root);
     while (!queue.isEmpty()) {
         Node curr = queue.dequeue();
-        if (curr == target ) return curr;
+        if (curr.val == target ) return curr;
         if (curr.left != null) {
             queue.enqueue(curr.left);
         }
@@ -29,6 +29,7 @@ public Node BFS(Tree tree, Node root, Node target) {
             queue.enqueue(curr.right);
         }
     }
+    return null;
 }
 ```
 
@@ -51,7 +52,7 @@ For a video explanation, check out https://youtu.be/0u78hx-66Xk
 
 
 ## Java Code Representation (Graph)
-NOTE: It is assumed that the Graph is implemented with an adjacency matrix - an array of linked lists, with each index of the array representing a vertex, and the linked list containing all of the other vertices it connects to - see the Graphs section for more detail
+NOTE: It is assumed that the Graph is implemented with an adjacency matrix - an array of lists of integers, with each index of the array representing a vertex, and the list containing all of the other vertices it connects to - see the Graphs section for more detail
 ```
 public void BFS(int s) {
     Queue<Integer> queue = new Queue<>();
@@ -61,6 +62,7 @@ public void BFS(int s) {
     while (!queue.isEmpty()) {
         int curr = queue.dequeue();
         // if you're searching for a specific vertex, perform check here on curr
+        // or, print node like in the example above
         List<Integer> vertices = adj[curr];
         for (int v : vertices) {
             if (!visited[v]) {
