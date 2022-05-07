@@ -41,7 +41,7 @@ https://youtu.be/Y40bRyPQQr0
 ## Java Code Representation (Graph)
 NOTE: It is assumed that the Graph is implemented with an adjacency matrix - an array of lists of integers, with each index of the array representing a vertex, and the list containing all of the other vertices it connects to - see the Graphs section for more detail
 ```
-public void BFS(int s) {
+public void DFS(int s) {
     Queue<Integer> queue = new Queue<>();
     boolean[] visited = new boolean[numNodes];
     visited[s] = true;
